@@ -1,13 +1,14 @@
 class Admin < User
-  def create_user(username, password)
+  def self.create_user(username, password)
     new_user = User.new
     new_user.login = username
-    new_user.password = password
-    new_user.password_confirmation = password
+    new_user.password_digest = password
+    new_user.account = Account.new
     new_user.save
+    user.account.update_column(:balance, 0)
   end
 
-  def admin_transfer(amount, user)
+  def self.admin_transfer(amount, user)
     user = User.find_by(login: user)
     transaction = user.account.transaction.new
     transaction.amount = amount
@@ -16,6 +17,6 @@ class Admin < User
     transaction.type = 'Credit'
     transaction.save
 
-    user.account.update_column(balance: balance + amount)
+    user.account.update_column(:balance, balance + amount)
   end
 end

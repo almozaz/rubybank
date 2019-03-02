@@ -1,0 +1,18 @@
+<% @page_title = "Home" -%>
+<div class= "home">
+  <h1>Home</h1>
+  <%= @user.account.balance %>
+
+  <%= form_tag(:action => 'make_deposit', :controller=>"transactions") do %>
+    <p>Username:</br>
+      <%= text_field_tag :username %></p>
+
+    <p>Ammount:</br>
+      <%= number_field_tag :amount, class: :text_field, step: :any %></p>
+
+    <%= submit_tag("Make deposit") %>
+    <% end %>
+
+    <%= button_to "logout", :controller=> "application", :action=> "logout" %>
+
+  </div>

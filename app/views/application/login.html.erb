@@ -1,0 +1,14 @@
+<% @page_title = "Login" -%>
+<div class= "sign_form">
+  <h1>Log in</h1>
+  <%= form_tag(:action => 'login') do %>
+    <p>Username:</br>
+      <%= text_field_tag(:username) %></p>
+
+    <p>Password:</br>
+      <%= password_field_tag :password %></p>
+      <%= password_field_tag :password_confirmation %></p>
+
+    <%= submit_tag("Log In") %>
+  <% end %>
+</div>
