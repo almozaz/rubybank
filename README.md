@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Rails version: 5.1.4
 
-Things you may want to cover:
+* Database: Sqlite3
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+> rails db:create db:migrate db:seed
 
-* Database creation
 
-* Database initialization
+* To create new users
 
-* How to run the test suite
+> rails console
+> Admin.create_user(username, password)
 
-* Services (job queues, cache servers, search engines, etc.)
+* Transfer money from admin to user
+Admin.create_user(username, password)
+16
 
-* Deployment instructions
-
-* ...
+> Admin.admin_transfer(amount, user)
