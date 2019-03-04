@@ -6,16 +6,16 @@
 
 
 
-> rails db:create db:migrate db:seed
+> $ rails db:create db:migrate db:seed
 
 
 * To create new users
 
-> rails console
-> Admin.create_user(username, password)
+> $ rails console
+> $ Admin.create_user(username, password)
 
 * Transfer money from admin to user
 Admin.create_user(username, password)
-16
 
-> Admin.admin_transfer(amount, user)
+
+> $ Admin.admin_transfer(amount, user)
