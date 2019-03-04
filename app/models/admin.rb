@@ -5,7 +5,7 @@ class Admin < User
     new_user.password_digest = password
     new_user.account = Account.new
     new_user.save
-    user.account.update_column(:balance, 0)
+    new_user.account.update_column(:balance, 0)
   end
 
   def self.admin_transfer(amount, user)
@@ -14,7 +14,7 @@ class Admin < User
     transaction.amount = amount
     transaction.from_id = self.id
     transaction.to_id = user.id
-    transaction.type = 'Credit'
+    transaction.transaction_type = 'Credit'
     transaction.save
 
     user.account.update_column(:balance, balance + amount)

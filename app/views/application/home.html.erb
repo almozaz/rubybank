@@ -1,18 +1,59 @@
 <% @page_title = "Home" -%>
 <div class= "home">
-  <h1>Home</h1>
-  <%= @user.account.balance %>
+  <nav class="navbar navbar-light bg-light">
+    <div class="col-md-auto">
+      <%= link_to "logout", :controller=> "application", :action=> "logout" %>
+    </div>
+  </nav>
+
+  <br>
+
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <h1>Home</h1>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <h3>Balance: <%= @user.account.balance %>€</h3>
+    </div>
+  </div>
+
+  <br>
 
   <%= form_tag(:action => 'make_deposit', :controller=>"transactions") do %>
-    <p>Username:</br>
-      <%= text_field_tag :username %></p>
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto">
+        <p>Username:</br>
+      </div>
+    </div>
 
-    <p>Ammount:</br>
-      <%= number_field_tag :amount, class: :text_field, step: :any %></p>
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto">
+        <%= text_field_tag :username %></p>
+      </div>
+    </div>
 
-    <%= submit_tag("Make deposit") %>
-    <% end %>
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto">
+        <p>Ammount:</br>
+      </div>
+    </div>
 
-    <%= button_to "logout", :controller=> "application", :action=> "logout" %>
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto">
+        <%= number_field_tag :amount, class: :text_field, step: :any %></p>
+      </div>
+    </div>
 
-  </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-auto">
+        <%= submit_tag("Make deposit", class: "btn btn-primary") %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

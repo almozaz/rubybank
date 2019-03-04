@@ -1,18 +1,14 @@
 class TransactionsController < ApplicationController
   def make_deposit
     current_user = User.find(session[:user_id])
-    user = params[:username]
-    amount = params[:amount]
 
-    transaction = current_user.give_credit(user, amount)
-    # flash confirmation or rejection
+    transaction = current_user.give_credit(params[:username], params[:amount])
+
     if transaction[:successful]
-      flash[:notice] = transaction[:message]
-
+      flash[:success] = transaction[:message]
       redirect_to(:action => 'home', :controller => 'application')
     else
-      flash[:notice] = transaction[:message]
-      flash[:color]= "invalid"
+      flash[:warning] = transaction[:message]
       redirect_to(:action => 'home', :controller => 'application')
     end
   end

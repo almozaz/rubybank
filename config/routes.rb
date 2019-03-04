@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'application/login'
   root "application#login"
-  post 'application/login'
+  post 'application/authenticate'
   get "application/home"
   get 'application/logout'
 

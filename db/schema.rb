@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20190301135613) do
     t.decimal "amount"
     t.integer "to_id", null: false
     t.integer "from_id", null: false
-    t.string "type"
+    t.string "transaction_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_transactions_on_account_id"
