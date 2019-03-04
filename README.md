@@ -12,7 +12,10 @@
 * To create new users
 
 > $ rails console
+
 > $ Admin.create_user(username, password)
+
+
 
 * Transfer money from admin to user
 Admin.create_user(username, password)
